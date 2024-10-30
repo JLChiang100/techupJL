@@ -9,9 +9,13 @@
         <h2>It is the little things you do with your time that will change your life.</h2>
         <h3>Start to change your life, now.</h3>
         <h4>What do I want?</h4>
-            <form>
-                <input type="text" id="text-input" placeholder="I want..." required>
-                <button type="submit">Submit</button>
-            </form>        
+        <form onsubmit="return false;">
+            <input type="text" id="text-input" placeholder="I want..." required>
+            <button type="submit" onclick="commit()">Commit</button>
+        </form>
+    
+        <div id="output"></div>
+
+    <script src="script.js"></script> 
     </body>
 </html>
