@@ -1,10 +1,40 @@
-h1{
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    color: darkblue;
-    background-color: #b669d4a8;
-    text-align: left;
-    border: 5px black solid;
-    padding-bottom: 10px;
-    margin-bottom: 10px;
+body {
+    font-family: 'Arial', sans-serif; /* Clean, modern font */
+    background-color: #f4f4f4; /* Light gray background for softness */
+    color: #333; /* Dark gray text for good contrast */
+    text-align: center; /* Center align all text */
+    padding: 50px; /* Add padding around the content */
+}
 
+h1 {
+    font-size: 4.0 em; /* Larger size for main title */
+    color: #4A90E2; /* Soft blue color for emphasis */
+    margin-bottom: 20px; /* Space below the heading */
+}
+
+h2 {
+    font-size: 1.5em; /* Medium size for secondary title */
+    color: #666; /* Medium gray color */
+    margin-bottom: 15px; /* Space below the heading */
+}
+
+h3 {
+    font-size: 1.2em; /* Slightly smaller size */
+    color: #333; /* Darker gray for visibility */
+    margin-bottom: 30px; /* Space below the heading */
+}
+
+button {
+    background-color: #4A90E2; /* Soft blue background */
+    color: white; /* White text */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 12px 24px; /* Padding inside the button */
+    font-size: 1em; /* Font size */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth background color transition */
+}
+
+button:hover {
+    background-color: #357ABD; /* Darker blue on hover */
 }
