@@ -42,7 +42,7 @@ function displayCalendar() {
             </label>
         `;
 
-        // "Show the box"
+        // Append the box
         calendarContainer.appendChild(dayDiv);
     }
 }
@@ -76,7 +76,7 @@ function checkHabitStatus() {
     if (allCompleted && !anyNotCompleted) {
         messageElement.textContent = "Sweet Streak!";
     } else if (anyNotCompleted) {
-        messageElement.textContent = "Pause, what's been happening.";
+        messageElement.textContent = "Pause, what's been happening?";
     } else {
         messageElement.textContent = ''; // Clear the message if incomplete
     }
