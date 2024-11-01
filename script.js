@@ -35,10 +35,10 @@ function displayCalendar() {
         dayDiv.innerHTML = `
             <h4>${formattedDate}</h4>
             <label>
-                <input type="radio" name="habit-${i}" value="completed" onchange="checkHabitStatus()"> Completed
+                <input type="radio" name="habit-${i}" value="completed" onchange="checkHabitStatus()"> Yes, I did it.
             </label>
             <label>
-                <input type="radio" name="habit-${i}" value="not-completed" onchange="checkHabitStatus()"> Not Completed
+                <input type="radio" name="habit-${i}" value="not-completed" onchange="checkHabitStatus()"> Nope
             </label>
         `;
 
@@ -76,7 +76,7 @@ function checkHabitStatus() {
     if (allCompleted && !anyNotCompleted) {
         messageElement.textContent = "Sweet Streak!";
     } else if (anyNotCompleted) {
-        messageElement.textContent = "Pause, what's been happening?";
+        messageElement.textContent = "It's ok, what's been happening?";
     } else {
         messageElement.textContent = ''; // Clear the message if incomplete
     }
