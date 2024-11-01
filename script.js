@@ -1,28 +1,72 @@
-let firstInputValue = ''; // Variable to hold the first input value
+function handleSubmit() {
+            // Get values from input fields
+            const wantInput = document.getElementById('want-input').value;
+            const habitInput = document.getElementById('habit-input').value;
 
-function commitFirst() {
-    // Get the value from the first input
-    firstInputValue = document.getElementById('first-input').value;
-    // Hide the header and the first input form
-    document.getElementById('first-header').style.display = 'none';
-    document.getElementById('first-form').style.display = 'none';
-    // Show the second input container
-    document.getElementById('second-input-container').style.display = 'block';
-    // Clear the first input field
-    document.getElementById('first-input').value = '';
-}
+            // Display the calendar
+            displayCalendar();
 
-function commitSecond() {
-    // Get the value from the second input
-    const habit = document.getElementById('second-input').value;
-    // Display the outputs below the input forms
-    document.getElementById('output').innerHTML = `
-        <strong>${firstInputValue}</strong><br>
-        Habit: <strong>${habit}</strong>
-    `;
-    // Hide the second header and the second input form
-    document.getElementById('second-header').style.display = 'none';
-    document.querySelector('#second-input-container form').style.display = 'none';
-    // Clear the second input field
-    document.getElementById('second-input').value = '';
-}
+            // Set input fields with their respective values
+            document.getElementById('want-input').value = wantInput;
+            document.getElementById('habit-input').value = habitInput;
+
+            return false; // Prevent page reload
+        }
+
+        function displayCalendar() {
+            const calendarContainer = document.getElementById('calendar');
+            calendarContainer.style.display = 'flex'; // Show the calendar
+
+            // Clear previous calendar content
+            calendarContainer.innerHTML = '';
+
+            // Create calendar for each day of the week
+            const daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+            daysOfWeek.forEach(day => {
+                const dayDiv = document.createElement('div');
+                dayDiv.className = 'day';
+                dayDiv.innerHTML = `
+                    <h4>${day}</h4>
+                    <label>
+                        <input type="radio" name="habit-${day}" value="completed" onchange="checkHabitStatus()"> Completed
+                    </label>
+                    <label>
+                        <input type="radio" name="habit-${day}" value="not-completed" onchange="checkHabitStatus()"> Not Completed
+                    </label>
+                `;
+                calendarContainer.appendChild(dayDiv);
+            });
+        }
+
+        function checkHabitStatus() {
+            const daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+            let allCompleted = true;
+            let anyNotCompleted = false;
+
+            daysOfWeek.forEach(day => {
+                const radios = document.getElementsByName(`habit-${day}`);
+                let selected = false;
+                radios.forEach(radio => {
+                    if (radio.checked) {
+                        selected = true;
+                        if (radio.value === 'not-completed') {
+                            anyNotCompleted = true;
+                        }
+                    }
+                });
+                // If no option selected for a day, consider it incomplete
+                if (!selected) {
+                    allCompleted = false;
+                }
+            });
+
+            // Display appropriate message based on the check
+            const messageElement = document.getElementById('message');
+            if (allCompleted && !anyNotCompleted) {
+                messageElement.textContent = "Sweet Streak!";
+            } else if (anyNotCompleted) {
+                messageElement.textContent = "Pause, what's been happening.";
+            } else {
+                messageElement.textContent = ''; // Clear the message if incomplete
+            }
+        }

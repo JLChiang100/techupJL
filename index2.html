@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<script src="script.js"></script>
+<head>
+    <title>Weekly Habit Tracker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            max-width: 400px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+
+        input {
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #4A90E2;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #357ABD;
+        }
+
+        .calendar {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .day {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 5px;
+            width: 80px;
+            border-radius: 4px;
+            background-color: white;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .day h4 {
+            margin: 0;
+            font-size: 16px;
+        }
+
+        .message {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>So what do you want?</h1>
+    <form id="habit-form" onsubmit="return handleSubmit()">
+        <label for="want-input">1) What do you want?</label>
+        <input type="text" id="want-input" placeholder="Enter your goal..." required>
+        
+        <label for="habit-input">2) What is the one habit that you are going to do to achieve what you want?</label>
+        <input type="text" id="habit-input" placeholder="Enter your habit..." required>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <div id="calendar" class="calendar" style="display:none;"></div>
+    <div id="message" class="message"></div>
+
+    
+</body>
+</html>
