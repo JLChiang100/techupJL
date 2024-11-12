@@ -2,6 +2,15 @@
 <html lang="en">
 <script src="script.js"></script>
 <head>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6W6S37207W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-6W6S37207W');
+</script>
     <title>Weekly Habit Tracker</title>
     <style>
         body {
@@ -87,7 +96,7 @@
         }
     
         .message {
-            margin-top: 25px;
+            margin-top: 35px;
             font-size: 18px;
             font-weight: bold;
             color: #333; /* Darker color for better readability */
@@ -102,7 +111,7 @@
         <label for="want-input">1) What do you want?</label>
         <input type="text" id="want-input" placeholder="Enter your goal..." required>
         
-        <label for="habit-input">2) What is the one habit that you are going to do to achieve what you want?</label>
+        <label for="habit-input">2) Habit to achieve what you want?</label>
         <input type="text" id="habit-input" placeholder="Enter your habit..." required>
 
         <button type="submit">Start now!</button>
